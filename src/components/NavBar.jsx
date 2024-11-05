@@ -5,7 +5,7 @@ return (
     <div className='navbar'> 
 <nav>
 <div>
-    <Link to='/'>Homepage</Link>
+    <Link to='/' className='link'>Homepage</Link>
 </div>
 
 </nav>

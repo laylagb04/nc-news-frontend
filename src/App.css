@@ -10,15 +10,56 @@ outline-style: solid;
 }
 
 
-.article-img img {
-  height: 100%;
-  width:100%;
-  object-fit:cover
+.article-img-div {
+ display: flex;
+ justify-content: center;
+ align-items: center;
 }
+
+
+
 p{
   font-size:25px;
+ 
 }
 
 .article-title{
   font-size: 25px;
+  outline:3px solid black
+}
+
+
+.article-topic{
+  
+font-style: italic;
+
+}
+.article-vote-id-parent {
+ 
+ display:flex;
+ justify-content: space-between;
+}
+
+.left, .right{
+  display:flex;
+  flex-direction: column;
+  gap:1px
+}
+
+.right{
+
+  border: solid 3px black;
+}
+*{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.link{
+  color:black
+}
+
+.article-body{
+  text-align: justify;
+  padding-top: 20px;
+  padding-bottom: 300px;
 }
