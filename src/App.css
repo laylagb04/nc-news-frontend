@@ -40,16 +40,20 @@ font-style: italic;
  justify-content: space-between;
 }
 
+.small-info{
+  font-size: medium;
+}
 .left, .right{
   display:flex;
   flex-direction: column;
   gap:1px
 }
 
-.right{
 
-  border: solid 3px black;
-}
+
+
+ 
+
 *{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -62,4 +66,14 @@ font-style: italic;
   text-align: justify;
   padding-top: 20px;
   padding-bottom: 300px;
+}
+
+.comment-div{
+color:black;
+padding-bottom: 10px;
+outline: solid black 2px;
+}
+
+.body{
+  font-style: italic;
 }
