@@ -3,7 +3,7 @@ import Header from './components/Header'
 import NavBar from './components/NavBar'
 import {Routes, Route} from 'react-router-dom'
 import Homepage from './components/Homepage'
-
+import ArticleCard from './components/ArticleCard'
 
 
 
@@ -16,7 +16,8 @@ function App() {
 <Header/>
 <NavBar/>
 <Routes>
-<Route path='/' element={<Homepage />} />
+<Route path='/' element={<Homepage />}/>
+<Route path='/articles/:article_id' element={<ArticleCard />}/>
 </Routes>
 
 
