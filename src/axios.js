@@ -16,4 +16,9 @@ function getArticleById(article_id) {
   });
 }
 
-export { getArticles, getArticleById };
+function getCommentsById(article_id) {
+  return api.get(`/articles/${article_id}/comments`).then((response) => {
+    return response.data.comments;
+  });
+}
+export { getArticles, getArticleById, getCommentsById };
