@@ -21,4 +21,8 @@ function getCommentsById(article_id) {
     return response.data.comments;
   });
 }
-export { getArticles, getArticleById, getCommentsById };
+
+function updateVotes(article_id, num) {
+  return api.patch(`articles/${article_id}`, { inc_votes: num });
+}
+export { getArticles, getArticleById, getCommentsById, updateVotes };
