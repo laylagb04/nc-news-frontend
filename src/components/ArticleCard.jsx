@@ -1,29 +1,27 @@
 import {useParams} from 'react-router-dom'
-import {useLocation, Link} from 'react-router-dom'
+
 import { getArticleById } from '../axios'
 import {useState, useEffect} from 'react'
 import CommentCard from './CommentCard'
+import VoteButton from './VoteButton';
 
 function ArticleCard() {
 
 const [article, setArticle] = useState({})
 
 
-
-
 let { article_id} = useParams()
+
 
 
 useEffect(() => {
    
     getArticleById(article_id).then((articleData ) => {
         setArticle(articleData)
+     
+        
     })
 }, [article_id])
-
-
-
-
 
 
 
@@ -46,19 +44,10 @@ return (
 
         
         <p className='article-body'> {article.body}</p>
-      
-        <div className='article-vote-id-parent'>
-            <div className='left'> 
-        <p className='article-vote-id-child'>Comment Count: {article.comment_count}</p>
-       
-        
-        <p className='article-vote-id-child'>Votes: {article.votes}</p>
-        </div>
 
-
-      </div>
+<VoteButton article_id={article_id} articleVotes={article.votes} />
       <CommentCard article={article} />
-
+      <p className='article-vote-id-child'>Comment Count: {article.comment_count}</p>
 
 
       <div className='right'>

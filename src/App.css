@@ -50,9 +50,11 @@ font-style: italic;
 }
 
 
+.like-sad-icons{
+justify-content: center;
+align-items: center;
 
-
- 
+ }
 
 *{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
