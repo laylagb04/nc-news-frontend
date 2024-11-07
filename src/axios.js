@@ -6,6 +6,12 @@ const api = axios.create({
 
 function getArticles(params = {}) {
   const queryParams = {};
+  if (params.sort_by) {
+    queryParams.sort_by = params.sort_by;
+  }
+  if (params.order) {
+    queryParams.order = params.order;
+  }
   if (params.topic) {
     queryParams.topic = params.topic;
   }
