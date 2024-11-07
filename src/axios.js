@@ -23,6 +23,27 @@ function getCommentsById(article_id) {
 }
 
 function updateVotes(article_id, num) {
-  return api.patch(`articles/${article_id}`, { inc_votes: num });
+  return api.patch(`/articles/${article_id}`, { inc_votes: num });
 }
-export { getArticles, getArticleById, getCommentsById, updateVotes };
+
+function postComment(articleID, newComment) {
+  return api
+    .post(`/articles/${articleID}/comments`, newComment)
+    .then((response) => {
+      return response.data.comment;
+    });
+}
+function getUsers() {
+  return api.get("/users").then((response) => {
+    return response.data.users;
+  });
+}
+
+export {
+  getArticles,
+  getArticleById,
+  getCommentsById,
+  updateVotes,
+  postComment,
+  getUsers,
+};
