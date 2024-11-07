@@ -7,6 +7,7 @@ return (
 <div>
     <Link to='/' className='link'>Homepage</Link>
     <Link to='/login' className='link'>Login</Link>
+    <Link to='/topics' className='link'>Topics</Link>
 </div>
 
 </nav>
