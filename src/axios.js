@@ -4,10 +4,18 @@ const api = axios.create({
   baseURL: "https://be-nc-news-kxol.onrender.com/api",
 });
 
-function getArticles() {
-  return api.get("/articles").then((response) => {
-    return response;
-  });
+function getArticles(params = {}) {
+  const queryParams = {};
+  if (params.topic) {
+    queryParams.topic = params.topic;
+  }
+  return api
+    .get("/articles", {
+      params: queryParams,
+    })
+    .then((response) => {
+      return response;
+    });
 }
 
 function getArticleById(article_id) {
