@@ -79,3 +79,8 @@ outline: solid black 2px;
 .body{
   font-style: italic;
 }
+
+.avatar-img{
+  width:100px;
+  height:100px
+}
