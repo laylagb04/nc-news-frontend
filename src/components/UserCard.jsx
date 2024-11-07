@@ -7,7 +7,7 @@ import { getUsers } from "../axios";
 function UserCard(){
     const [users, setUsers] =useState([])
 
-    const {setLoggedInUser, loggedInUser} = useContext(UserContext)
+    const {loggedInUser, setLoggedInUser} = useContext(UserContext)
 
 
 const [selectedUser, setSelectedUser] = useState(null)
