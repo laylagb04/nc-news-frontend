@@ -39,6 +39,12 @@ function getUsers() {
   });
 }
 
+function deleteComment(commentID) {
+  return api.delete(`/comments/${commentID}`).then((response) => {
+    return response;
+  });
+}
+
 export {
   getArticles,
   getArticleById,
@@ -46,4 +52,5 @@ export {
   updateVotes,
   postComment,
   getUsers,
+  deleteComment,
 };
