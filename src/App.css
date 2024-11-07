@@ -94,6 +94,9 @@ align-items: center;
   padding-bottom: 300px;
 }
 
+.sorting-box{
+  margin-bottom: 20px;
+}
 .comment-div{
 color:black;
 padding-bottom: 10px;
