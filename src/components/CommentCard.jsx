@@ -71,7 +71,7 @@ return (
         <p className='comment'>{comment.author}</p>
         <p className='comment body'>{comment.body}</p>
         <p className='comment '> Votes:{comment.votes}</p>
-        <p className='comment'> Created at: {comment.created_at}</p>
+        <p className='comment'> Created at: {new Date(comment.created_at).toLocaleDateString()}</p>
         {loggedInUser.username === comment.author ? (<button onClick={() => HandleDelete(comment.comment_id)} >
             Delete comment </button>) : null  }
            
