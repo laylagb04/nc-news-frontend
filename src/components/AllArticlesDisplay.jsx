@@ -2,9 +2,9 @@ import {useState, useEffect} from 'react'
 import { getArticles } from '../axios'
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid2'
-import ArticleCard from './ArticleCard';
-import {Link, useSearchParams} from 'react-router-dom'
 
+import {Link, useSearchParams} from 'react-router-dom'
+import ErrorHandling from './ErrorHandling';
 
 
 function AllArticlesDisplay(){
@@ -13,6 +13,9 @@ const [loading, isLoading] = useState(true)
 const [sortBy, setSortBy] = useState('created_at')
 const [sortOrder, setSortOrder] = useState('desc')
 const [searchParams, setSearchParams] = useSearchParams()
+const [error, setError] = useState(null)
+
+
 
    useEffect(() => {
     const sortParam = searchParams.get('sort_by') 
@@ -28,14 +31,22 @@ const [searchParams, setSearchParams] = useSearchParams()
         const articlesArray = articles.data.articles
         setArticles(articlesArray)
         isLoading(false)
+    }).catch((err)=> {
+        
+        setError(err)
     })
    }, [searchParams])
+   
+   if(error){
+    return <ErrorHandling message={error.message}/>
+}
 
 if (loading) {
     return <p>
         Loading...
     </p>
 }
+
 
 function handleSort(event){
 const [newSortBy, newSortOrder] = event.target.value.split('-')

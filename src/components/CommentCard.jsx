@@ -4,6 +4,7 @@ import { getCommentsById } from '../axios'
 import CommentButton from './CommentButton'
 import { UserContext } from '../context/users';
 import { deleteComment } from '../axios';
+import ErrorHandling from './ErrorHandling';
 
 
 function CommentCard({article}){
@@ -12,12 +13,21 @@ function CommentCard({article}){
     const {article_id} = article
     const [comments, setComments] = useState([])
     const [showPopup, setShowPopup] = useState(false)
+const [error, setError] = useState(null)
+
+
 
     useEffect(()=> {
-        getCommentsById(article_id).then((comments)=> {
+if(article_id){
+
+
+       getCommentsById(article_id).then((comments)=> {
         
             setComments(comments)
+        }).catch((err)=>{
+          setError(err)
         })
+      }
     }, [article_id])
 
 function HandleDelete(commentID){
@@ -41,16 +51,17 @@ function HandleDelete(commentID){
 
   return newComments
    })
+   
+}).catch((err)=>{
+  setError(err)
 })
 
-.catch((error) => {
-    setDeleteMsg('comment not deleted')
-    setShowPopup(true)
-    setTimeout(() =>{
-        setShowPopup(false)},
-        3000)
-})
+
 }  
+
+if(error){
+  return <ErrorHandling message={error.message}/>
+}
 return (
   <>
 <CommentButton setComments={setComments}/>

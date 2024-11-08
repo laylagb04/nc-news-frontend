@@ -6,16 +6,13 @@ import { updateVotes } from '../axios';
 
 
 function VoteButton({article_id, articleVotes}){
+    const [votes, setVotes] = useState(articleVotes)
+const[error, setError] = useState('')
 
 
 useEffect(()=> {
     setVotes(articleVotes)
 }, [articleVotes])
-
-
-    const [votes, setVotes] = useState(articleVotes)
-const[error, setError] = useState('')
-
 
     function HandleVotes(num){
         const newVotes = votes + num

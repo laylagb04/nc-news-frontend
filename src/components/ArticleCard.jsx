@@ -4,11 +4,14 @@ import { getArticleById } from '../axios'
 import {useState, useEffect} from 'react'
 import CommentCard from './CommentCard'
 import VoteButton from './VoteButton';
+import ErrorHandling from './ErrorHandling';
+
+
 
 function ArticleCard() {
 
 const [article, setArticle] = useState({})
-
+const [error, setError] = useState(null)
 
 let { article_id} = useParams()
 
@@ -20,10 +23,15 @@ useEffect(() => {
         setArticle(articleData)
      
         
+    }).catch((err)=> {
+        setError(err)
     })
 }, [article_id])
 
 
+if(error){
+    return <ErrorHandling message={error.message}/>
+}
 
 return (
     <>

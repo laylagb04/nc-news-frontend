@@ -5,31 +5,43 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid2'
 import {Link} from 'react-router-dom'
 import { useParams } from 'react-router-dom';
+import ErrorHandling from './ErrorHandling';
 
 
 function GetArticleByTopic(){
 const {topic} = useParams()
+const [error, setError] = useState(null)
 
     const [articles, setArticles] = useState([])
-    const [loading, isLoading] = useState(true)
+    const [isLoading, setLoading] = useState(true)
     
        useEffect(() => {
-
-        if(topic !== 'coding' && topic !== 'football' && topic !=='cooking'){
-           return setArticles([])
-        }
      
-        getArticles({topic}).then((articlesFromApi)=>{
-            setArticles(articlesFromApi.data.articles)
-        isLoading(false)
-           
-        })
-    
-    }, [topic])
-    
-    
+        if(!topic){
+            return
+        }
+       
 
-    if(loading){
+    
+        getArticles({topic}).then((articlesFromApi)=>{
+
+            setArticles(articlesFromApi.data.articles)
+        setLoading(false)
+           
+        
+        }).catch((err)=>{
+            setError(err)
+            setLoading(false)
+        })
+    }, [topic])
+  
+
+    if(error){
+    
+       return  <ErrorHandling message={error.message}/>
+    }
+
+    if(isLoading){
         return <p>Loading...</p>
     }
 
