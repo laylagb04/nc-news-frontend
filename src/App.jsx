@@ -9,7 +9,7 @@ import { UserContext } from './context/users'
 import UserCard from './components/UserCard'
 import Topics from './components/Topics'
 import GetArticleByTopic from './components/GetArticleByTopic'
-
+import ErrorPage from './components/ErrorPage'
 
 function App() {
 const [loggedInUser, setLoggedInUser] = useState({})
@@ -27,6 +27,7 @@ const isLoggedIn = Object.keys(loggedInUser).length > 0
 <Route path='/login' element={<UserCard/>}/>
 <Route path='/topics' element={<Topics/>}/>
 <Route path='/topics/:topic' element={<GetArticleByTopic/>}/>
+<Route path='*' element={<ErrorPage/>}/>
 </Routes>
 
 </>
