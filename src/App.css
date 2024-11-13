@@ -21,7 +21,7 @@ body{
      display:flex;
      align-items:center;
      justify-content:flex-start;
-     gap:25px
+     gap:5px
     }
 
 
@@ -53,24 +53,99 @@ body{
  
   }
 
-  .navbar-div{
+
+  /*navbar */
+
+  .navbar-outside-div{
     background-color: rgb(208, 206, 206);
     border-radius: 7px;
-    width: 305px;
+    width: 500px;
     padding: 10px 0;
     margin-top: 15px;
+  text-align: center;
+  margin-bottom: 60px;
    }
 
 
-   .navbar-div-inner{
+   .navbar-inner-div{
+    margin-left: 10px;
+    padding:4px;
+    width:fit-content;
+    height:20px;
+    border-radius: 10px;
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
     display: flex;
-   
-   
-    gap: 20px;
+    
     }
 
 
-    .navbar{
+    .navigation{   text-decoration: none;
+      color: #333;
+      background-color: rgb(253, 246, 251);
+     
+      border-radius: 7px;
+      margin: 0 10px;
+      transition: background-color 0.3s;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);}
+
+  .navbar-homepage-div{
+  
+  
+  width:fit-content;
+  height:30px;
+  border-radius: 10px;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  background-color:  rgb(253, 246, 251);
+  margin-right: 100px ;
+  
+}
+
+
+.navbar-homepage-img{
+  width:auto;
+  height:20px;
+  padding-right: 10px;
+}
+
+.navbar-login-img{
+  width:auto;
+  height:20px;
+  padding-right: 10px;
+}
+
+.navbar-login-div{
+margin-left: 1px;
+ width:fit-content;
+  height:30px;
+  border-radius: 10px;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  background-color:  rgb(253, 246, 251);
+}
+
+.navbar-topics-img{
+  width:auto;
+  height:20px;
+  padding-right: 10px;
+}
+
+
+.navbar-topics-div{
+  margin-left: 10px;
+ width:fit-content;
+  height:30px;
+  border-radius: 10px;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  background-color:  rgb(253, 246, 251);
+}
+    /* .navbar{
       text-decoration: none;
         color: #333;
         background-color: rgb(253, 246, 251);
@@ -79,7 +154,7 @@ body{
         margin: 0 10px;
         transition: background-color 0.3s;
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-     }
+     } */
 
 
 
