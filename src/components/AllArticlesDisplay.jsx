@@ -66,8 +66,10 @@ return (
     <>
     <div className='all-items-display'>
     <Box sx={{flexGrow:1}}>
-        <div className='sorting-box'>
-<label>Sort By</label>
+
+        
+<label >Sort By</label>
+<div className='sorting-box'>
 <select value={`${sortBy}-${sortOrder}`}onChange={handleSort}>
 
     <option value='created_at-desc'>Created at descending</option>

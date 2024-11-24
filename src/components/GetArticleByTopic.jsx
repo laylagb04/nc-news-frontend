@@ -2,10 +2,13 @@ import {useState, useEffect
 } from 'react'
 import { getArticles } from '../axios'
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid2'
+
 import {Link} from 'react-router-dom'
 import { useParams } from 'react-router-dom';
 import ErrorHandling from './ErrorHandling';
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
+import ImageListItemBar from '@mui/material/ImageListItemBar';
 
 
 function GetArticleByTopic(){
@@ -47,35 +50,27 @@ const [error, setError] = useState(null)
 
     return (
         <>
-        <div className='all-items-display'>
-        <Box sx={{flexGrow:1}}>
-        <Grid container spacing = {{sx:1,md:2}} columns = {{xs:4, sm:8, md:12}}>
-                {articles.map((article) => (
-                    
-                   
-    
-    
-                     <Grid className='article-grid' size={{xs:2, sm:2, md:4  }}>
-                      
-                      
-                      
-                        <div className='article-img'>
-                        <img className='article-images' srcSet={article.article_img_url}
-                        src={article.article_img_url}
-                    
-                        />
-                         </div>
-                         
-                         <Link to={`/articles/${article.article_id}`}  className='link'>
-                         {article.title}</Link>
-
-                        <p className='article-authorid'>{article.author}</p>
-                        </Grid>
-    ))}
-    
-        </Grid>
-        </Box>
-        </div>
+        
+<ImageList sx={{ width: '100%', height: 'auto' }} cols={3} gap={10}>
+{articles.map((article) => (
+    <ImageListItem className='all-article-item'>
+        <img className='article-images' srcSet={article.article_img_url}
+                    src={article.article_img_url}
+                loading='lazy'
+                    />
+<ImageListItemBar className='all-articles-title'
+title={
+    <Link to={`/articles/${article.article_id}`}  className=' all-articles-title'>
+    {article.title}</Link>
+}
+                 
+                subtitle={<p className='all-articles-author' > by {article.author}</p>}
+                    />
+                    </ImageListItem>
+   
+))}
+</ImageList>
+        
         </>
     )
 }
