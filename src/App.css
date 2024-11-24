@@ -3,6 +3,9 @@ body{
   background-color: rgb(253, 246, 251);
  }
 
+ h3{
+font-size: 30px;
+ }
 /* header and navbar */
 
  .header-nc-news{
@@ -145,21 +148,17 @@ margin-left: 1px;
   justify-content: space-between;
   background-color:  rgb(253, 246, 251);
 }
-    /* .navbar{
-      text-decoration: none;
-        color: #333;
-        background-color: rgb(253, 246, 251);
-       
-        border-radius: 7px;
-        margin: 0 10px;
-        transition: background-color 0.3s;
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-     } */
+   
+
+/* select bar */
 
 
+.sorting-box select{
+  font-size: 1.0rem;
+  
+  background-color: rgba(255,192,203,255);
 
-   /* header and navbar */
-
+}
  .popup{
   position: fixed;
   top: 50%;
@@ -292,14 +291,39 @@ overflow:hidden;
     font-style: italic;
   }
 
-  .avatar-img{
-    width:100px;
-    height:100px
+  /* user login */
+
+  .user-login-div-parent{
+  
+    display:flex
+  }
+  .avatar-login-div{
+    padding-left:20px;
+    padding-right: 20px;
+    padding-bottom: 3px;
+  }
+
+.avatar-login-name{
+  font-size: 30px;
+}
+
+.avatar-login-pairs:hover{
+  background-color: white;
+}
+  .avatar-login-img{
+    width:200px;
+    height:200px;
+    border: 2px solid   #ffc0cb;
+    border-radius: 5%;
+   margin: 10px;
   }
 
 
 
-
+.user-login-msg{
+  
+  padding-bottom: 40px;
+}
 
 
 

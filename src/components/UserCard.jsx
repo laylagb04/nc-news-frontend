@@ -27,21 +27,30 @@ setUsers(usersFromApi)
 
 return (
     <>
-    <h3> Login</h3>
-    {loggedInUser ? (
+   
+    {Object.keys(loggedInUser).length === 0 ? (
     <div>
-        <h3> Welcome {loggedInUser.name} </h3>
+         <h3 className='user-login-msg'> Select a user to login </h3>
+        
     </div>
     ) : (
-        <p> Select a user to login </p>
+        <h3 className='user-login-msg'> Welcome {loggedInUser.name} ! </h3>
     )
     }
-    <div className='user-div'>
+    <div className='user-login-div-parent'>
     {users.map(user => (
         <div onClick={() => setLoggedInUser(user)}>
-        <img className='avatar-img' src={user.avatar_url}></img>
-        <p>{user.name}</p>
+           <div className='avatar-login-pairs'>
+
+         <div className='avatar-login-div'> 
+        <img className='avatar-login-img' src={user.avatar_url}></img>
+        </div> 
+        
+        <div className='avatar-login-div'>
+        <p className='avatar-login-name'>{user.name}</p>
         </div>
+        </div>
+        </div> 
         
 ))}
   </div>
